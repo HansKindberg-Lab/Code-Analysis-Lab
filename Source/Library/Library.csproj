@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<Target Name="ShowSettings" BeforeTargets="Build">
+		<!-- https://docs.microsoft.com/en-us/visualstudio/code-quality/disable-code-analysis?view=vs-2019#net-framework-projects -->
+		<Message Importance="high" Text=" - RunAnalyzersDuringBuild = $(RunAnalyzersDuringBuild)" />
+		<Message Importance="high" Text=" - RunAnalyzersDuringLiveAnalysis = $(RunAnalyzersDuringLiveAnalysis)" />
+		<Message Importance="high" Text=" - RunAnalyzers = $(RunAnalyzers)" />
+	</Target>
+</Project>
